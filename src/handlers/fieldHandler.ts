@@ -4,7 +4,7 @@ import {FieldsOfType} from '../types/FieldsOfType';
 import {fields} from '../objects/fields';
 
 export const fieldHandler = function fieldHandler (
-  list: Array<Field | FieldsOfType>
+  list: Array<Field | FieldsOfType>,
 ): string {
   return list
     .map((item) => {

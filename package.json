@@ -10,7 +10,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "prepare": "npm run build",
     "build": "npm run build:fields && npm run lint && tsc",
     "build:docs": "typedoc --out docs src/ --mode file --excludePrivate --excludeProtected --theme ./node_modules/typedoc-dark-theme/bin/default",

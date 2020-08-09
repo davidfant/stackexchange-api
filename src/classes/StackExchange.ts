@@ -60,7 +60,7 @@ export class StackExchange {
    * This method returns an array of questions (Question[]) wrapped in a Wrapper.
    */
   public static async advancedSearch (
-    options: AdvancedSearchOptions
+    options: AdvancedSearchOptions,
   ): Promise<Wrapper<Question>> {
     const advancedSearchUrl = new URL('/search/advanced', this.baseUrl);
 
@@ -153,14 +153,14 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Question'
+        },
+      ), 'Question',
     );
   }
 
 
   public static async createFilter (
-    options: CreateFilterOptions
+    options: CreateFilterOptions,
   ): Promise<Wrapper<Filter>> {
     const createFilterUrl = new URL(`/filters/create`, this.baseUrl);
 
@@ -188,14 +188,14 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Filter'
+        },
+      ), 'Filter',
     );
   }
 
 
   public static async decodeFilters (
-    options: DecodeFiltersOptions
+    options: DecodeFiltersOptions,
   ): Promise<Wrapper<Filter>> {
     const decodeFiltersUrl = new URL(`/filters/${semiDelimitedListHandler(options.filters)}`, this.baseUrl);
 
@@ -211,8 +211,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Filter'
+        },
+      ), 'Filter',
     );
   }
 
@@ -228,7 +228,7 @@ export class StackExchange {
    * This method returns an array of answers (Answer[]) wrapped in a Wrapper.
    */
   public static async getAnswers (
-    options: GetAnswersOptions
+    options: GetAnswersOptions,
   ): Promise<Wrapper<Answer>> {
     const getAnswersUrl = new URL('/answers', this.baseUrl);
 
@@ -269,8 +269,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Answer'
+        },
+      ), 'Answer',
     );
   }
 
@@ -291,7 +291,7 @@ export class StackExchange {
    * This method returns an array of answers (Answer[]) wrapped in a Wrapper.
    */
   public static async getAnswersByIds (
-    options: GetAnswersByIdsOptions
+    options: GetAnswersByIdsOptions,
   ): Promise<Wrapper<Answer>> {
     const getAnswersByIdsUrl = new URL(`/answers/${semiDelimitedListHandler(options.ids)}`, this.baseUrl);
 
@@ -332,8 +332,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Answer'
+        },
+      ), 'Answer',
     );
   }
 
@@ -344,7 +344,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static async getBadges (
-    options: GetBadgesOptions
+    options: GetBadgesOptions,
   ): Promise<Wrapper<Badge>> {
     let getBadgesUrlPath = '/badges';
 
@@ -406,8 +406,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Badge'
+        },
+      ), 'Badge',
     );
   }
 
@@ -420,7 +420,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static async getBadgesByIds (
-    options: GetBadgesByIdsOptions
+    options: GetBadgesByIdsOptions,
   ): Promise<Wrapper<Badge>> {
     const getBadgesByIdsUrl = new URL(`/badges/${semiDelimitedListHandler(options.ids)}`, this.baseUrl);
 
@@ -461,8 +461,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Badge'
+        },
+      ), 'Badge',
     );
   }
 
@@ -473,7 +473,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static getNamedBadges (
-    options: GetNamedOrTagBasedBadgesOptions
+    options: GetNamedOrTagBasedBadgesOptions,
   ): Promise<Wrapper<Badge>> {
     return this.getBadges({
       ...options,
@@ -488,7 +488,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static getTagBasedBadges (
-    options: GetNamedOrTagBasedBadgesOptions
+    options: GetNamedOrTagBasedBadgesOptions,
   ): Promise<Wrapper<Badge>> {
     return this.getBadges({
       ...options,
@@ -504,7 +504,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static async getRecipientsBadges (
-    options: GetRecipientsBadgesOptions
+    options: GetRecipientsBadgesOptions,
   ): Promise<Wrapper<Badge>> {
     const getRecipientsBadgesUrl = new URL('/badges/recipients', this.baseUrl);
 
@@ -533,8 +533,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Badge'
+        },
+      ), 'Badge',
     );
   }
 
@@ -548,7 +548,7 @@ export class StackExchange {
    * This method returns an array of badges (Badge[]) wrapped in a Wrapper.
    */
   public static async getRecipientsBadgesByIds (
-    options: GetRecipientsBadgesByIdsOptions
+    options: GetRecipientsBadgesByIdsOptions,
   ): Promise<Wrapper<Badge>> {
     const getRecipientsBadgesByIdsUrl = new URL(`/badges/${semiDelimitedListHandler(options.ids)}/recipients`, this.baseUrl);
 
@@ -577,8 +577,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Badge'
+        },
+      ), 'Badge',
     );
   }
 
@@ -593,7 +593,7 @@ export class StackExchange {
    * This method returns an array of comments (Comment[]) wrapped in a Wrapper.
    */
   public static async getComments (
-    options: GetCommentsOptions
+    options: GetCommentsOptions,
   ): Promise<Wrapper<Comment>> {
     const getCommentsUrl = new URL('/comments', this.baseUrl);
 
@@ -634,8 +634,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Comment'
+        },
+      ), 'Comment',
     );
   }
 
@@ -652,7 +652,7 @@ export class StackExchange {
    * This method returns an array of comments (Comment[]) wrapped in a Wrapper.
    */
   public static async getCommentsByIds (
-    options: GetCommentsByIdsOptions
+    options: GetCommentsByIdsOptions,
   ): Promise<Wrapper<Comment>> {
     const getCommentsByIdsUrl = new URL(`/comments/${semiDelimitedListHandler(options.ids)}`, this.baseUrl);
 
@@ -693,8 +693,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Comment'
+        },
+      ), 'Comment',
     );
   }
 
@@ -711,7 +711,7 @@ export class StackExchange {
    * This method returns an array of comments (Comment[]) wrapped in a Wrapper.
    */
   public static async getCommentsOnAnswers (
-    options: GetCommentsOnAnswersOptions
+    options: GetCommentsOnAnswersOptions,
   ): Promise<Wrapper<Comment>> {
     const getCommentsOnAnswersUrl = new URL(`/answers/${semiDelimitedListHandler(options.ids)}/comments`, this.baseUrl);
 
@@ -752,8 +752,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Comment'
+        },
+      ), 'Comment',
     );
   }
 
@@ -765,7 +765,7 @@ export class StackExchange {
    * This method returns an array of info objects (Info[]) wrapped in a Wrapper.
    */
   public static async getInfo (
-    options: GetInfoOptions
+    options: GetInfoOptions,
   ): Promise<Wrapper<Info>> {
     const getInfoUrl = new URL('/info', this.baseUrl);
 
@@ -782,14 +782,14 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Info'
+        },
+      ), 'Info',
     );
   }
 
 
   public static async getPosts (
-    options: GetPostsOptions
+    options: GetPostsOptions,
   ): Promise<Wrapper<Post>> {
     const getPostsUrl = new URL('/posts', this.baseUrl);
 
@@ -830,14 +830,14 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Post'
+        },
+      ), 'Post',
     );
   }
 
 
   public static async getPostsByIds (
-    options: GetPostsByIdsOptions
+    options: GetPostsByIdsOptions,
   ): Promise<Wrapper<Post>> {
     const getPostsByIdsUrl = new URL(`/posts/${semiDelimitedListHandler(options.ids)}`, this.baseUrl);
 
@@ -878,8 +878,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Post'
+        },
+      ), 'Post',
     );
   }
 
@@ -893,7 +893,7 @@ export class StackExchange {
    * This method returns an array of privileges (Privilege[]) wrapped in a Wrapper.
    */
   public static async getPrivileges (
-    options: GetPrivilegesOptions
+    options: GetPrivilegesOptions,
   ): Promise<Wrapper<Privilege>> {
     const getPrivilegesUrl = new URL('/privileges', this.baseUrl);
 
@@ -916,8 +916,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Privilege'
+        },
+      ), 'Privilege',
     );
   }
 
@@ -928,7 +928,7 @@ export class StackExchange {
    * This method returns an array of sites (Site[]) wrapped in a Wrapper.
    */
   public static async getSites (
-    options: GetSitesOptions
+    options: GetSitesOptions,
   ): Promise<Wrapper<Site>> {
     const getSitesUrl = new URL('/sites', this.baseUrl);
 
@@ -950,8 +950,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Site'
+        },
+      ), 'Site',
     );
   }
 
@@ -1030,8 +1030,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Tag'
+        },
+      ), 'Tag',
     );
   }
 
@@ -1043,7 +1043,7 @@ export class StackExchange {
    * This method returns an array of tags (Tag[]) wrapped in a Wrapper.
    */
   public static getModeratorOnlyTags (
-    options: Omit<GetTagsOptions, 'moderatorOnly' | 'required'>
+    options: Omit<GetTagsOptions, 'moderatorOnly' | 'required'>,
   ): Promise<Wrapper<Tag>> {
     return this.getTags({
       ...options,
@@ -1059,7 +1059,7 @@ export class StackExchange {
    * This method returns an array of tags (Tag[]) wrapped in a Wrapper.
    */
   public static getRequiredTags (
-    options: Omit<GetTagsOptions, 'moderatorOnly' | 'required'>
+    options: Omit<GetTagsOptions, 'moderatorOnly' | 'required'>,
   ): Promise<Wrapper<Tag>> {
     return this.getTags({
       ...options,
@@ -1083,7 +1083,7 @@ export class StackExchange {
    * This method returns an array of questions (Question[]) wrapped in a Wrapper.
    */
   public static async search (
-    options: SearchOptions
+    options: SearchOptions,
   ): Promise<Wrapper<Question>> {
     const searchUrl: URL = new URL('/search', this.baseUrl);
 
@@ -1144,8 +1144,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Question'
+        },
+      ), 'Question',
     );
   }
 
@@ -1167,7 +1167,7 @@ export class StackExchange {
    * This method returns an array of questions (Question[]) wrapped in a Wrapper.
    */
   public static async similarSearch (
-    options: SimilarSearchOptions
+    options: SimilarSearchOptions,
   ): Promise<Wrapper<Question>> {
     const similarSearchUrl: URL = new URL('/similar', this.baseUrl);
 
@@ -1218,8 +1218,8 @@ export class StackExchange {
           },
           gzip: true,
           json: true,
-        }
-      ), 'Question'
+        },
+      ), 'Question',
     );
   }
 }
